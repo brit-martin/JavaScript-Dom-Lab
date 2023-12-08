@@ -1,4 +1,11 @@
 let player = ('X')
+
+const squares = document.querySelectorAll(".square")
+console.log(squares)
+for (const square of squares){
+square.addEventListener('click', play)
+}
+
 function calculateWinner(){
     const lines = [
     [0, 1, 2],
@@ -24,7 +31,6 @@ for (const line of lines) {
  }
 
 
-
 function play (evt){
     const targetSquare = evt.target 
     targetSquare.innerText = player
@@ -36,6 +42,8 @@ function play (evt){
     const playerTurn = document.querySelector('#current-player');
        playerTurn.innerText = player
 }
+
+
 const winner = calculateWinner();
     if (winner){
         alert(`${winner} is winner!!`)
@@ -52,8 +60,3 @@ function isBoardFull(){
     } return true;
 } 
 
-const squares = document.querySelectorAll(".square")
-console.log(squares)
-for (const square of squares){
-square.addEventListener('click', play)
-}
